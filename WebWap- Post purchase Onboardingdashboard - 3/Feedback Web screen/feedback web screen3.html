@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <!-- <link rel="stylesheet" href="/style.css"> -->
+        <style>
+            body{
+               
+            }
+            .center{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+            .submit{
+                color: white;
+                background-color: black;
+                padding: 10px 20px;
+                cursor: pointer; 
+            }
+            .popup{
+                display: none;
+                background: rgba(0, 0, 0,0.6);
+            }
+            .popup.--show{
+                display: block;
+            }
+            .rectangle{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                /* display: none; */
+                transform: translate(-50%,-50%);
+                width: 380px;
+                padding: 20px 30px;
+                background-color: white;
+                text-align: center;
+                border: 1px solid black;
+            }
+            .cancelMark::before{
+                content: "";
+                width: 20px;
+                border: 0.5px solid black;
+                background-color:black;
+                position: absolute;
+                transform: rotate(45deg);
+                float: right;
+                top: 20px;
+                right:20px ;
+            }
+        .cancelMark::after{
+                content: "";
+                width: 20px;
+                border: 0.5px solid black;
+                background-color: black;
+                position: absolute;
+                transform: rotate(-45deg);
+                float: right;
+                top: 20px;
+                right:20px ;
+            }
+            .cancelMark:hover{
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="center">
+            <button class="submit" onclick="openpop()" >submit</button>
+        </div>
+        <div class="popup" id="popup">
+            <div class="rectangle" id="rectangle">
+                <div class="cancelMark" id="cancelMark" onclick="closepopup()"></div>
+                <div>
+                    <img class="status_img" src="https://cdn.zeplin.io/61ada76710547fa0e70c1ab6/assets/3EC13ADC-729B-4FF5-BD2D-4AC5098A40D4.svg" alt="success Image" />
+                </div>
+                <div class="status_msg1">Thank You!</div>
+                <div class="status_msg2">We appreciate your feedback.</div>
+            </div>
+        </div>
+        <script>
+                const openpop = () => {
+                    document.getElementById("popup").classList.add("--show");
+                }
+                const closepopup=()=>{
+                    console.log("hello")
+                    document.getElementById("popup").classList.remove("--show");
+                }
+        </script>
+    </body>
+</html>
